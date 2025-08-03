@@ -1,24 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>simon says game</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>✨ Simon Says Memory Game ✨</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
+
 <body>
-    <h1>Simon Game</h1>
-    <h3>press any key to start</h3>
-    <div>
-        <div class ="outbox">
-            <div class="box red" type ="button" id="red"></div>
-            <div class="box blue" type ="button" id="blue"></div>
-        </div>
-        <div class ="outbox">
-            <div class="box yellow" type ="button" id="yellow"></div>
-            <div class="box purpple" type ="button" id="purpple"></div>
-        </div>
+
+  <!-- Game Container -->
+  <div class="game-container">
+
+    <!-- Title Section -->
+    <header class="title-section">
+      <h1>🧠 Simon Memory Game</h1>
+      <h3 class="subtitle" id="statusText">Click <span class="start-key">Start</span> to begin</h3>
+    </header>
+
+    <!-- Scoreboard -->
+    <div class="score-panel">
+      <p>Level: <span id="levelDisplay">0</span></p>
     </div>
-    <script src="app.js"></script>
+
+    <!-- Game Grid -->
+    <div class="game-grid">
+      <div class="outbox">
+        <div class="box red" id="red" role="button" aria-label="Red Color Button"></div>
+        <div class="box blue" id="blue" role="button" aria-label="Blue Color Button"></div>
+      </div>
+      <div class="outbox">
+        <div class="box yellow" id="yellow" role="button" aria-label="Yellow Color Button"></div>
+        <div class="box purpple" id="purpple" role="button" aria-label="Purple Color Button"></div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <button id="startBtn">▶ Start Game</button>
+      <button id="restartBtn" disabled>🔁 Restart</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>Made with ❤️ by <strong>Snehal</strong></p>
+    </footer>
+
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
