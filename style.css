@@ -1,40 +1,225 @@
-body{
-    text-align: center;
-    
-}
-.outbox{
-    display: flex;
-    justify-content: center;
-}
-.box{
-    height: 200px;
-    width: 200px;
-    border-radius: 20%;
-    border: 10px solid black;
-    margin: 1.5rem;
-}
-.red{
-    background-color: rgb(215, 87, 109);
-}
-.blue{
-    background-color: rgb(63, 161, 202);
-}
-.yellow{
-    background-color: orange;
-}
-.purpple{
-    background-color: rgb(111, 130, 238);
-}
-.gameflash{
-    background-color: rgb(203, 23, 179); 
-    opacity:0.5;
-    border-radius: 30px;
-    border: 15px solid rgb(38, 164, 105);
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-.userflash{
-    background-color: rgba(21, 202, 75, 0.996);
-    opacity: 0.5;
+/* Body Styling */
+body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Container with Glassmorphism */
+.game-container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 800px;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* Title Section */
+.title-section h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    animation: neonGlow 2s infinite alternate;
+}
+
+@keyframes neonGlow {
+    from {
+        text-shadow: 0 0 10px #ff6ec4, 0 0 20px #ff6ec4;
+    }
+    to {
+        text-shadow: 0 0 20px #7873f5, 0 0 30px #7873f5;
+    }
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 1.5rem;
+}
+
+.start-key, .tap {
+    color: #ffcc70;
+    font-weight: 600;
+}
+
+/* Score Panel */
+.score-panel {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.score-panel span {
+    color: #ffd700;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+/* Button Grid */
+.outbox {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Game Buttons */
+.box {
+    height: 140px;
+    width: 140px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-size: cover;
+    background-position: center;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+    position: relative;
+}
+
+/* Box Colors with Icons (Optional) */
+.red {
+    background: url('https://img.icons8.com/color/96/like--v1.png') no-repeat center, #ff4e50;
+    background-size: 60%, cover;
+}
+
+.blue {
+    background: url('https://img.icons8.com/color/96/info--v1.png') no-repeat center, #00c6ff;
+    background-size: 60%, cover;
+}
+
+.yellow {
+    background: url('https://img.icons8.com/color/96/sun--v1.png') no-repeat center, #f9d423;
+    background-size: 60%, cover;
+}
+
+.purpple {
+    background: url('https://img.icons8.com/color/96/magic-wand--v1.png') no-repeat center, #b24592;
+    background-size: 60%, cover;
+}
+
+/* Hover + Focus Effects */
+.box:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+}
+
+/* Flash Effects */
+.gameflash {
+    animation: flash 0.4s ease-in-out;
+}
+.userflash {
+    animation: userFlash 0.4s ease-in-out;
+}
+
+@keyframes flash {
+    0% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.1); filter: brightness(1.8); }
+    100% { transform: scale(1); filter: brightness(1); }
+}
+
+@keyframes userFlash {
+    0% { transform: scale(1); filter: hue-rotate(0deg); }
+    50% { transform: scale(1.1); filter: hue-rotate(90deg); }
+    100% { transform: scale(1); filter: hue-rotate(0deg); }
+}
+
+/* Restart Button */
+.controls {
+    margin-top: 1rem;
+}
+#restartBtn {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    border: none;
     border-radius: 30px;
-    border: 15px solid rgb(34, 47, 39);
+    background: linear-gradient(45deg, #ff512f, #dd2476);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+#restartBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ff5e62;
+}
+
+/* Footer */
+footer {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .box {
+        height: 110px;
+        width: 110px;
+    }
+    .title-section h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .box {
+        height: 90px;
+        width: 90px;
+    }
+    .title-section h1 {
+        font-size: 2rem;
+    }
+    .subtitle {
+        font-size: 1rem;
+    }
+}
+
+/* Start and Restart Buttons */
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+#startBtn, #restartBtn {
+    padding: 0.7rem 1.7rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#startBtn:hover, #restartBtn:hover:enabled {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #00c6ff;
+}
+
+#restartBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
